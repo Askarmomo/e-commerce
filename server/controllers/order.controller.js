@@ -29,7 +29,7 @@ export const createPaymentIntent = async (req, res) => {
                     name: product.name,
                     images: [product.image]
                 },
-                unit_amount: Math.round(product.price * 100),
+                unit_amount: Math.round(product.price * 100)/300,
             },
             quantity: product.quantity || 1
 
@@ -39,8 +39,8 @@ export const createPaymentIntent = async (req, res) => {
             payment_method_types: ["card"],
             line_items: line_items,
             mode: "payment",
-            success_url: "http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}",
-            cancel_url: "http://localhost:5173/cancel",
+            success_url: `https://dashboard.render.com/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `https://dashboard.render.com/cancel`,
 
             metadata: {
                 userId: user._id.toString(),
