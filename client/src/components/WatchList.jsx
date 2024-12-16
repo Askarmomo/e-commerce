@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"
 import useProductStore from "../store/product.store"
-import { dataFormat } from "../middleware/dataFormaet"
 import { motion } from "framer-motion"
 
 const WatchList = () => {
@@ -9,7 +8,7 @@ const WatchList = () => {
 
 
     return (
-        <div className=" p-4 sm:p-0 sm:w-[1008px]">
+        <div className=" p-4 mt-[150px] sm:mt-auto sm:p-0 sm:w-[1008px]">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -27,10 +26,10 @@ const WatchList = () => {
                                             watchList.map((product) => (
 
                                                 < tr key={product._id} className=" border">
-                                                    <th scope="row" className="sm:px-6 px-1 py-2 sm:py-4 font-medium">
-                                                        <div className=" flex space-x-2 items-center">
+                                                    <th scope="row" className="sm:px-6 py-2 sm:py-4 font-medium">
+                                                        <div className=" flex space-x-3 items-center">
                                                             <img className=" w-12 h-12 rounded-full object-cover " src={product.image} alt="book" />
-                                                            <h3 className=" w-[70px] sm:w-auto">{product.name}</h3>
+                                                            <h3 className=" w-[90px] text-left sm:w-auto">{product.name}</h3>
                                                         </div>
                                                     </th>
                                                     <td className="sm:px-6 sm:py-4">
@@ -38,9 +37,6 @@ const WatchList = () => {
                                                     </td>
                                                     <td className="sm:px-6 sm:py-4">
                                                         {product.stock <= 0 ? "out of stock" : "in stock"}
-                                                    </td>
-                                                    <td className="sm:px-6 sm:py-4">
-                                                        {dataFormat(product.createdAt, "YYYY/MM/DD")}
                                                     </td>
                                                     <td className="sm:px-6 sm:py-4">
                                                         <button onClick={() => addToWatchlist({ product: product })} className=" bg-red-500 text-white hover:bg-red-600 sm:p-2 p-1.5 rounded font-semibold">Remove</button>
