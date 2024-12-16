@@ -40,7 +40,7 @@ export const createPaymentIntent = async (req, res) => {
             line_items: line_items,
             mode: "payment",
             success_url: `https://e-commerce-2gbq.onrender.com/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `https://e-commerce-2gbq.onrender.com//cancel`,
+            cancel_url: `https://e-commerce-2gbq.onrender.com/cancel`,
 
             metadata: {
                 userId: user._id.toString(),
