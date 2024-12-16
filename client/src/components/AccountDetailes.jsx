@@ -62,7 +62,7 @@ const AccountDetailes = () => {
         }
 
         setLoading(false)
-
+        location.reload()
     }
 
     return (
