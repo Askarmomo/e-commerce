@@ -73,7 +73,7 @@ const NavBar = () => {
                 {
                     user ? < div className=" hidden sm:block" >
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button"><img className=" w-10 h-10 rounded-full border-teal-300 border-2 object-cover" src={user?.profilePic} alt={user.username} /> </div>
+                            <div tabIndex={0} role="button"><img className=" w-10 h-10 rounded-full border-teal-300 border-2 object-cover" src={user.profilePic} alt={user.username} /> </div>
                             <ul tabIndex={0} className="dropdown-content menu bg-slate-100 rounded-box z-[1] w-52 p-2 shadow">
                                 <li className=" font-bold text-[17px] p-1 pl-4 capitalize">{user.username}</li>
                                 <li className=" font-semibold">
