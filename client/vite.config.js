@@ -8,7 +8,7 @@ export default defineConfig({
 
   server: {
     proxy: {
-      "/api": "https://dashboard.render.com",
+      "/api": "http://localhost:3000/",
     }
   },
   plugins: [
