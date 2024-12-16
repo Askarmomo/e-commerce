@@ -27,7 +27,7 @@ const Order = () => {
 
     return (
 
-        <div className=" mx-3 sm:mx-0 text-xs sm:text-base sm:w-[1008px]">
+        <div className=" mx-3 sm:mx-0 mt-[150px] sm:mt-auto text-xs sm:text-base sm:w-[1008px]">
             {userOrders.length ?
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -55,9 +55,9 @@ const Order = () => {
                                 filteredOrder.map((order) => (
                                     <div key={order._id} className=" text-xs sm:text-base sm:w-[1000px]">
                                         <div className={` text-xs list-none sm:text-sm flex bg-slate-100 my-1 cursor-pointer hover:bg-slate-200 items-center justify-evenly sm:px-0 sm:py-2 py-3 ${order._id === OrderId && accodient && 'bg-slate-100'}`}>
-                                            <li className=" sm:w-20 ">ID ({order.orderId})</li>
-                                            <li className="text-teal-500 sm:w-20 ">{Number(order.totalPrice).toLocaleString('en-LK', { style: 'currency', currency: "LKR" })}</li>
-                                            <li className={`sm:w-20 rounded tewh w-[80px] text-center ${order.status === "Shiped" && " badge-primary" || order.status === "Delivered" && " badge-success " || order.status === "Process" && " badge-secondary " || order.status === "Pending" && " badge-warning "}`}>{order.status}</li>
+                                            <li className=" sm:w-20 w-[70px] ">ID ({order.orderId})</li>
+                                            <li className="text-teal-500 sm:w-20 w-[75px] ">{Number(order.totalPrice).toLocaleString('en-LK', { style: 'currency', currency: "LKR" })}</li>
+                                            <li className={`sm:w-20 rounded w-[60px] text-center ${order.status === "Shiped" && " badge-primary" || order.status === "Delivered" && " badge-success " || order.status === "Process" && " badge-secondary " || order.status === "Pending" && " badge-warning "}`}>{order.status}</li>
                                             <li className="sm:w-20">{dataFormat(order.createdAt, 'DD/MM/YYYY')}</li>
                                             <li className="sm:w-22" onClick={() => { confirm('Are You Want To Delete The Order') && deleteOrder(order) }}><svg className=" fill-rose-500 hover:fill-rose-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path d="M7.616 20q-.667 0-1.141-.475T6 18.386V6h-.5q-.213 0-.356-.144T5 5.499t.144-.356T5.5 5H9q0-.31.23-.54t.54-.23h4.46q.31 0 .54.23T15 5h3.5q.213 0 .356.144t.144.357t-.144.356T18.5 6H18v12.385q0 .666-.475 1.14t-1.14.475zm2.692-3q.213 0 .357-.144t.143-.356v-8q0-.213-.144-.356T10.307 8t-.356.144t-.143.356v8q0 .213.144.356q.144.144.356.144m3.385 0q.213 0 .356-.144t.143-.356v-8q0-.213-.144-.356Q13.904 8 13.692 8q-.213 0-.357.144t-.143.356v8q0 .213.144.356t.357.144"></path></svg></li>
                                             <li className="sm:w-22" onClick={() => { setOrderId(order._id); setAccodient(!accodient) }}><svg className={` w-6 h-6 bg-slate-200 rounded-full ${order._id === OrderId && accodient ? 'fill-red-500 ' : 'rotate-180 fill-slate-500'} `} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path className=" animate-pulse" d="M18 6.41L16.59 5L12 9.58L7.41 5L6 6.41l6 6z"></path><path className=" animate-pulse" d="m18 13l-1.41-1.41L12 16.17l-4.59-4.58L6 13l6 6z"></path></svg></li>
@@ -65,16 +65,15 @@ const Order = () => {
 
                                         {order.products.map((product, index) => (
                                             <div key={product._id} className={`border sm:border-none capitalize border-b list-none flex sm:block items-center sm:justify-between overflow-hidden transition-[max-height] duration-700 ease-in-out ${order._id === OrderId && accodient ? 'max-h-screen' : 'max-h-0'}`}>
-                                                <div className="  flex sm:items-center sm:justify-between sm:p-2 p-2">
+                                                <div className="  flex sm:items-center space-x-3 sm:justify-between sm:p-2 p-2">
                                                     <div className="sm:px-6 sm:py-4 flex sm:space-x-4 space-x-2 items-center sm:justify-between" >
                                                         <span>{index + 1}</span>
                                                         <img className="h-12 w-12 object-cover rounded-lg " src={product.image} alt={product.name} />
-                                                        <span className=" capitalize w-20 sm:w-auto">{product.name}</span>
+                                                        <span className=" capitalize w-[100px] text-xs sm:text-base sm:w-auto">{product.name}</span>
                                                     </div>
 
                                                     <div className={` flex items-center sm:justify-end sm:space-x-10 space-x-4 sm:pr-5`}>
-                                                        <li>{dataFormat(order.createdAt, "YYYY/MM/DD")} </li>
-                                                        <li>{product.address}</li>
+                                                        <li className=" w-[57px]">{product.address}</li>
                                                         <li>{product.quantity}</li>
                                                         <li className=" text-teal-700">{Number(product.price).toLocaleString('en-LK', { style: 'currency', currency: 'LKR' })}</li>
                                                     </div>
@@ -86,11 +85,11 @@ const Order = () => {
                                 ))
                                 :
                                 userOrders.map((order) => (
-                                    <div key={order._id} className=" sm:w-[1000px]">
+                                    <div key={order._id} className=" text-xs sm:text-base sm:w-[1000px]">
                                         <div className={` text-xs list-none sm:text-sm flex bg-slate-100 my-1 cursor-pointer hover:bg-slate-200 items-center justify-evenly sm:px-0 sm:py-2 py-3 ${order._id === OrderId && accodient && 'bg-slate-100'}`}>
-                                            <li className=" sm:w-20 ">ID ({order.orderId})</li>
-                                            <li className="text-teal-500 sm:w-20 ">{Number(order.totalPrice).toLocaleString('en-LK', { style: 'currency', currency: "LKR" })}</li>
-                                            <li className={`sm:w-20 rounded tewh w-[80px] text-center ${order.status === "Shiped" && " badge-primary" || order.status === "Delivered" && " badge-success " || order.status === "Process" && " badge-secondary " || order.status === "Pending" && " badge-warning "}`}>{order.status}</li>
+                                            <li className=" sm:w-20 w-[70px] ">ID ({order.orderId})</li>
+                                            <li className="text-teal-500 sm:w-20 w-[75px] ">{Number(order.totalPrice).toLocaleString('en-LK', { style: 'currency', currency: "LKR" })}</li>
+                                            <li className={`sm:w-20 rounded w-[60px] text-center ${order.status === "Shiped" && " badge-primary" || order.status === "Delivered" && " badge-success " || order.status === "Process" && " badge-secondary " || order.status === "Pending" && " badge-warning "}`}>{order.status}</li>
                                             <li className="sm:w-20">{dataFormat(order.createdAt, 'DD/MM/YYYY')}</li>
                                             <li className="sm:w-22" onClick={() => { confirm('Are You Want To Delete The Order') && deleteOrder(order) }}><svg className=" fill-rose-500 hover:fill-rose-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path d="M7.616 20q-.667 0-1.141-.475T6 18.386V6h-.5q-.213 0-.356-.144T5 5.499t.144-.356T5.5 5H9q0-.31.23-.54t.54-.23h4.46q.31 0 .54.23T15 5h3.5q.213 0 .356.144t.144.357t-.144.356T18.5 6H18v12.385q0 .666-.475 1.14t-1.14.475zm2.692-3q.213 0 .357-.144t.143-.356v-8q0-.213-.144-.356T10.307 8t-.356.144t-.143.356v8q0 .213.144.356q.144.144.356.144m3.385 0q.213 0 .356-.144t.143-.356v-8q0-.213-.144-.356Q13.904 8 13.692 8q-.213 0-.357.144t-.143.356v8q0 .213.144.356t.357.144"></path></svg></li>
                                             <li className="sm:w-22" onClick={() => { setOrderId(order._id); setAccodient(!accodient) }}><svg className={` w-6 h-6 bg-slate-200 rounded-full ${order._id === OrderId && accodient ? 'fill-red-500 ' : 'rotate-180 fill-slate-500'} `} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path className=" animate-pulse" d="M18 6.41L16.59 5L12 9.58L7.41 5L6 6.41l6 6z"></path><path className=" animate-pulse" d="m18 13l-1.41-1.41L12 16.17l-4.59-4.58L6 13l6 6z"></path></svg></li>
@@ -98,16 +97,15 @@ const Order = () => {
 
                                         {order.products.map((product, index) => (
                                             <div key={product._id} className={`border sm:border-none capitalize border-b list-none flex sm:block items-center sm:justify-between overflow-hidden transition-[max-height] duration-700 ease-in-out ${order._id === OrderId && accodient ? 'max-h-screen' : 'max-h-0'}`}>
-                                                <div className=" flex sm:items-center sm:justify-between sm:p-2">
+                                                <div className="  flex sm:items-center space-x-3 sm:justify-between sm:p-2 p-2">
                                                     <div className="sm:px-6 sm:py-4 flex sm:space-x-4 space-x-2 items-center sm:justify-between" >
                                                         <span>{index + 1}</span>
-                                                        <img className="h-12 w-12 object-cover rounded-lg" src={product.image} alt={product.name} />
-                                                        <span className=" capitalize">{product.name}</span>
+                                                        <img className="h-12 w-12 object-cover rounded-lg " src={product.image} alt={product.name} />
+                                                        <span className=" capitalize w-[100px] text-xs sm:text-base sm:w-auto">{product.name}</span>
                                                     </div>
 
                                                     <div className={` flex items-center sm:justify-end sm:space-x-10 space-x-4 sm:pr-5`}>
-                                                        <li>{dataFormat(order.createdAt, "YYYY/MM/DD")} </li>
-                                                        <li>{product.address}</li>
+                                                        <li className=" w-[57px]">{product.address}</li>
                                                         <li>{product.quantity}</li>
                                                         <li className=" text-teal-700">{Number(product.price).toLocaleString('en-LK', { style: 'currency', currency: 'LKR' })}</li>
                                                     </div>
