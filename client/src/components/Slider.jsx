@@ -1,21 +1,24 @@
 import { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
+import img1 from '../../assets/slide1.jpg'
+import img2 from '../../assets/slide2.jpg'
+import img3 from '../../assets/slide3.jpg'
+import img4 from '../../assets/slide4.jpg'
 
 function Slider() {
     const slides = [
         {
-            url: '/assets/slide1.jpg'
+            url: img1
         },
         {
-            url: '/assets/slide2.jpg'
+            url: img2
         },
         {
-            url: '/assets/slide3.jpg'
+            url: img3
         },
-
         {
-            url: '/assets/slide4.jpg'
+            url: img4
         }
     ];
 
