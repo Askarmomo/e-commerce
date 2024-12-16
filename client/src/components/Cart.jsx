@@ -11,7 +11,7 @@ const Cart = () => {
 
 
 
-    const { cart, removeFromcart, totalPrice, changeCartCount } = useProductStore()
+    const { cart, removeFromcart, changeCartCount,totalPrice } = useProductStore()
     const { user } = useAuthStore()
     const [loading, setLoading] = useState(false)
 
@@ -92,15 +92,15 @@ const Cart = () => {
                             <div className=" sm:space-y-3 space-y-1 sm:mb-5 mb-2">
                                 <div className=" flex justify-between">
                                     <p className=" text-slate-600 uppercase ">Subtotal</p>
-                                    <span className=" text-teal-600">Rs. {totalPrice}</span>
+                                    <span className=" text-teal-600 font-bold ">Rs. {totalPrice || 0}</span>
                                 </div>
                                 <div className=" flex justify-between space-x-8">
                                     <p className="  text-slate-600 uppercase ">Shipping</p>
-                                    <span className=" capitalize text-[15px] "> <span className=" text-rose-500">Rs.350/</span></span>
+                                    <span className=" capitalize text-[15px] font-bold "> <span className=" text-rose-500">Rs.350/</span></span>
                                 </div>
                                 <div className=" flex justify-between">
                                     <p className=" text-slate-600 uppercase">Subtotal</p>
-                                    <span className=" text-teal-600">Rs. {totalPrice + 350}</span>
+                                    <span className=" text-teal-600 font-bold">Rs. {totalPrice + 350 || 0}</span>
                                 </div>
                             </div>
                             <button onClick={makePayment} className=" p-1.5 rounded font-semibold bg-teal-400 hover:bg-teal-500 w-full text-white">{loading ? 'LOADING...' : 'PROCEED TO CHECKOUT'}</button>

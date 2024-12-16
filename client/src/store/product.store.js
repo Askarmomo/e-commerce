@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 
 
-const useProductStore = create((set) => (
+const useProductStore = create((set, get) => (
     {
         products: [],
         categoryProducts: [],
@@ -155,7 +155,7 @@ const useProductStore = create((set) => (
 
                     return { cart: newCart }
                 })
-
+                get().setTotalPrice()
                 toast.success('cart added to successfully')
 
             } catch (error) {
@@ -185,6 +185,7 @@ const useProductStore = create((set) => (
                 })
                 await res.json()
                 set((preState) => ({ cart: preState.cart.filter((item) => item._id !== productId) }))
+                get().setTotalPrice()
             } catch (error) {
                 console.log(error);
 
@@ -214,10 +215,17 @@ const useProductStore = create((set) => (
                     return { cart: newCart }
                 })
 
+                get().setTotalPrice()
             } catch (error) {
                 console.log(error);
 
             }
+        },
+        setTotalPrice: () => {
+            const { cart } = get()
+            const totalPrice = cart.reduce((sum, product) => sum + product.price * product.quantity, 0)
+            set({ totalPrice })
+
         }
 
     }

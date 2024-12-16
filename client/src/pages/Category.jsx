@@ -22,7 +22,7 @@ const Category = () => {
     }, [getProductByCategory])
 
     return (
-        <div className=" sm:pr-[190px]">
+        <div className="">
             <div className=" mb-10 mx-4 sm:mx-8">
 
                 <div>
