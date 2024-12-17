@@ -22,7 +22,7 @@ const Address = () => {
     }
 
     return (
-        <div className=" sm:w-[1008px] text-xs mt-[150px] sm:text-base px-3">
+        <div className=" sm:w-[1008px] text-xs mt-[150px] sm:mt-auto sm:text-base px-3">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

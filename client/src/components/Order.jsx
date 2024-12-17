@@ -73,7 +73,7 @@ const Order = () => {
                                                     </div>
 
                                                     <div className={` flex items-center sm:justify-end sm:space-x-10 space-x-4 sm:pr-5`}>
-                                                        <li className=" w-[57px]">{product.address}</li>
+                                                        <li className=" w-[57px] sm:w-auto">{product.address}</li>
                                                         <li>{product.quantity}</li>
                                                         <li className=" text-teal-700">{Number(product.price).toLocaleString('en-LK', { style: 'currency', currency: 'LKR' })}</li>
                                                     </div>

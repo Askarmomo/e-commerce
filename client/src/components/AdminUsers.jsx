@@ -9,7 +9,7 @@ const AdminUsers = () => {
 
     return (
 
-        <div className=" pr-[64px]">
+        <div className=" pr-[47px]">
 
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
