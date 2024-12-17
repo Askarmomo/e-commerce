@@ -54,7 +54,7 @@ const WatchList = () => {
                     </div>
                     :
                     <div>
-                        <h1 className=" text-4xl font-semibold mt-40 ml-72 text-slate-500">Add to watchList</h1>
+                        <h1 className=" text-4xl font-semibold mt-40 text-center text-slate-500">Add to watchList</h1>
                     </div>
                 }
             </motion.div >
