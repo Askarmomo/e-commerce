@@ -54,13 +54,13 @@ const ProfilePage = () => {
         <div className=" mb-10  mt-[70px] sm:mt-0">
             <div className=" sm:flex sm:space-x-[310px]">
 
-                <div className=" sm:block flex items-cente space-x-14 sm:space-x-0 sm:max-w-fit bg-white sm:p-3 sm:h-full fixed z-50 sm:top-[92px] bottom-0">
+                <div className=" sm:block flex items-cente sm:space-x-0 sm:max-w-fit bg-white sm:p-3 sm:h-full fixed z-50 sm:top-[92px] bottom-0">
                     <div className=" hidden text-center sm:flex sm:items-center sm:space-x-4 sm:mb-5 sm:border-b-2 border-slate-500 sm:pb-2">
                         <img className=" sm:w-20 w-10 sm:h-20 h-10 rounded-full object-cover" src={user.profilePic} alt={user.username} />
                         <span className=" font-semibold text-xl capitalize hidden sm:block">{user.username}</span>
                     </div>
 
-                    <div className=" py-4 flex items-center space-x-10 sm:space-x-0 sm:block sm:space-y-6 sm:rounded ">
+                    <div className=" py-4 flex items-center space-x-[40px] px-4 sm:px-0 justify-evenly sm:justify-normal sm:space-x-0 sm:block sm:space-y-6 sm:rounded ">
 
                         {
                             data.map((instance) => (
