@@ -39,8 +39,8 @@ const App = () => {
       getWatchList()
       getAddress()
 
+      refreshToken()
     }
-    refreshToken()
   }, [getOrderByStatus, getAllCart, getWatchList, getProduct, user, refreshToken, getAddress]);
 
   setInterval(refreshToken, 4 * 60 * 1000)
