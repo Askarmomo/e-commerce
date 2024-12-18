@@ -74,7 +74,7 @@ const NavBar = () => {
                     user ? < div className=" hidden sm:block" >
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button"><img className=" w-10 h-10 rounded-full border-teal-300 border-2 object-cover" src={user.profilePic} alt={user.username} /> </div>
-                            <ul tabIndex={0} className="dropdown-content menu bg-slate-100 rounded-box z-[1] w-52 p-2 shadow">
+                            <ul tabIndex={0} className="dropdown-content menu bg-white rounded-box z-[1] w-52 p-2 shadow">
                                 <li className=" font-bold text-[17px] p-1 pl-4 capitalize">{user.username}</li>
                                 <li className=" font-semibold">
                                     <Link to={'/profile'} className=" flex items-center">
@@ -93,9 +93,9 @@ const NavBar = () => {
                                         </li>
                                     </Link>
                                 }
-                                <li className=" font-semibold">
-                                    <a onClick={logout} className=" flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 512 512"><path fill="none" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M320 176v-40a40 40 0 0 0-40-40H88a40 40 0 0 0-40 40v240a40 40 0 0 0 40 40h192a40 40 0 0 0 40-40v-40m64-160l80 80l-80 80m-193-80h273"></path></svg>
+                                <li className=" font-semibold ">
+                                    <a onClick={logout} className=" hover:bg-rose-200 flex items-center">
+                                        <svg className=" stroke-red-500" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 512 512"><path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M320 176v-40a40 40 0 0 0-40-40H88a40 40 0 0 0-40 40v240a40 40 0 0 0 40 40h192a40 40 0 0 0 40-40v-40m64-160l80 80l-80 80m-193-80h273"></path></svg>
                                         <span>Logout</span>
                                     </a>
                                 </li>
