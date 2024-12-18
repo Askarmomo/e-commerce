@@ -23,7 +23,7 @@ const Category = () => {
 
     return (
         <div className="">
-            <div className=" mb-10 mx-4 sm:mx-8 w-[1285px]">
+            <div className=" mb-10 mx-4 sm:mx-8 sm:w-[1285px]">
 
                 <div>
                     <h1 className=" font-bold text-3xl uppercase sm:mt-10 mt-24 mb-5 text-slate-600 underline">{category}</h1>
