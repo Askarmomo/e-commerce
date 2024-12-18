@@ -24,7 +24,7 @@ const SingUpPage = () => {
     }
 
     return (
-        <div className=" mx-5 sm:mx-0 sm:pt-0 pt-[75px]  ">
+        <div className=" mx-5 sm:mx-0 sm:pt-0 pt-[75px] sm:w-[1366px]">
             <h1 className=" font-bold text-3xl text-center pt-10">SingUp</h1>
 
             <div className=" max-w-xl mx-auto mt-10 space-y-6 shadow-lg bg-white p-4 pt-5 rounded">

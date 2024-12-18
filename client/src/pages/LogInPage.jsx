@@ -23,7 +23,7 @@ const LogInPage = () => {
 
 
     return (
-        <div className=' pt-16 sm:pt-0 mx-5 sm:mx-0'>
+        <div className=' pt-16 sm:pt-0 mx-5 sm:mx-0 sm:w-[1366px]'>
             <h1 className=" font-bold text-3xl text-center pt-10">LogIn</h1>
 
             <div className=" max-w-xl mx-auto mt-10 space-y-6 bg-white shadow-lg p-4 pt-5 rounded">

@@ -29,7 +29,7 @@ export const createPaymentIntent = async (req, res) => {
                     name: product.name,
                     images: [product.image]
                 },
-                unit_amount: Math.round(product.price * 100 /300),
+                unit_amount: Math.round(product.price * 100 ),
             },
             quantity: product.quantity || 1
 

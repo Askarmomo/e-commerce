@@ -42,8 +42,8 @@ const App = () => {
       getWatchList()
       getAddress()
 
-      refreshToken()
     }
+    refreshToken()
   }, [getOrderByStatus, getAllCart, getWatchList, getProduct, user, refreshToken, getAddress]);
 
 
@@ -65,7 +65,7 @@ const App = () => {
 
   }, []);
 
-  const hideFooterRoute = ['/profile', '/admin']
+  const hideFooterRoute = ['/profile', '/admin','/login','/singup']
 
 
   return (

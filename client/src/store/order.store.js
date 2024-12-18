@@ -7,6 +7,7 @@ const useOrderStore = create((set) => ({
     orders: [],
     userOrders: [],
     ordersCount: {},
+    loading: false,
 
     getAllOrders: async () => {
 
@@ -22,7 +23,7 @@ const useOrderStore = create((set) => ({
 
     },
     getUserOrder: async () => {
-
+        set({ loading: true })
         try {
             const res = await fetch("/api/orders/userorders")
             const data = await res.json()
@@ -30,7 +31,8 @@ const useOrderStore = create((set) => ({
 
         } catch (error) {
             console.log(error.message);
-
+        } finally {
+            set({ loading: false })
         }
 
     },
@@ -74,12 +76,12 @@ const useOrderStore = create((set) => ({
             })
             const data = await res.json()
 
-            set((prevState) => {
-                const filteredOrder = prevState.orders.filter((item) => item._id !== order._id)
-                return { orders: filteredOrder }
-            })
-
             if (!data.error) {
+                set((prevState) => {
+                    const filteredOrder = prevState.userOrders.filter((item) => item._id !== order._id)
+                    return { userOrders: filteredOrder }
+                })
+
                 toast.success(data.message)
             }
         } catch (error) {
