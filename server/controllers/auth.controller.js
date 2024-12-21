@@ -338,3 +338,29 @@ export const getAddress = async (req, res) => {
     }
 
 }
+
+export const deleteUser = async (req, res) => {
+    const user = req.user
+    const { id } = req.params
+
+    try {
+
+        if (user.role === "admin") {
+            if (id !== user._id.toString()) {
+                await User.findByIdAndDelete({ _id: id })
+                const allUsers = await User.find()
+                res.status(200).json(allUsers)
+            } else {
+                res.status(400).json({ error: 'you cannot delete admin' })
+            }
+
+        } else {
+            res.status(400).json({ error: "only admin can delete user" })
+        }
+
+    } catch (error) {
+        console.log('Error in deleteUser', error.message);
+        res.status(500).json({ error: 'Internal server error' })
+    }
+
+}

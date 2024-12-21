@@ -168,9 +168,8 @@ const useProductStore = create((set, get) => (
             try {
                 const res = await fetch('/api/products/getallcart')
                 const data = await res.json()
-
                 set({ cart: data })
-                set({ totalPrice: data.reduce((sum, product) => sum + product.price, 0) })
+                get().setTotalPrice()
             } catch (error) {
                 console.log(error.message);
 
@@ -223,6 +222,8 @@ const useProductStore = create((set, get) => (
         },
         setTotalPrice: () => {
             const { cart } = get()
+            console.log(cart);
+
             const totalPrice = cart.reduce((sum, product) => sum + product.price * product.quantity, 0)
             set({ totalPrice })
 

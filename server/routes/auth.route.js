@@ -1,5 +1,5 @@
 import express from "express"
-import { singUp, logIn, logOut, refreshTokens, updateProfile, getUserProfile, accountDetailes, updateAddress, getAllUsers, getUserCount, getAddress } from "../controllers/auth.controller.js"
+import { singUp, logIn, logOut, refreshTokens, updateProfile, getUserProfile, accountDetailes, updateAddress, getAllUsers, getUserCount, getAddress, deleteUser } from "../controllers/auth.controller.js"
 import { adminRoute, protuctedRoute } from "../middleware/auth.middleware.js"
 
 const authRoute = express.Router()
@@ -14,7 +14,8 @@ authRoute.get('/acoountdetailes', protuctedRoute, accountDetailes)
 authRoute.put('/updateaddress', protuctedRoute, updateAddress)
 authRoute.get('/all-users', protuctedRoute, adminRoute, getAllUsers)
 authRoute.get('/user-count', protuctedRoute, adminRoute, getUserCount)
-authRoute.get('/address',protuctedRoute,getAddress)
+authRoute.get('/address', protuctedRoute, getAddress)
+authRoute.delete('/delete-user/:id', protuctedRoute, adminRoute,deleteUser)
 
 
 export default authRoute

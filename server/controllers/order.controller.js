@@ -29,7 +29,7 @@ export const createPaymentIntent = async (req, res) => {
                     name: product.name,
                     images: [product.image]
                 },
-                unit_amount: Math.round(product.price * 100 ),
+                unit_amount: Math.round(product.price * 100),
             },
             quantity: product.quantity || 1
 
@@ -105,7 +105,9 @@ export const checkoutSuccess = async (req, res) => {
         }
 
         // send email to customer for purchesing
-        const sendedEmail = await sendEmail('askarmomo111@gmail.com', 'Order', "orderd successfully and thnk you for your purchese")
+        const sendedEmail = await sendEmail(req.user.email, 'momo book', `Thanks ${req.user.username} 
+            
+            you can get your product after 3 working days`)
 
         res.status(200).json({ message: "payment sucessfully" })
     } catch (error) {

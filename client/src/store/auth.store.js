@@ -120,6 +120,9 @@ const useAuthStore = create((set) => ({
             } else {
                 set({ user: data })
                 toast.success('profile updated successfully')
+                setTimeout(() => {
+                    location.reload()
+                }, 2000);
             }
         } catch (error) {
             console.log(error.message);
@@ -156,6 +159,22 @@ const useAuthStore = create((set) => ({
 
         }
 
+    },
+    deleteUser: async (user) => {
+        const res = await fetch(`/api/auth/delete-user/${user._id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        })
+
+        const data = await res.json()
+
+        if (!data.error) {
+
+            set({ allUsers: data })
+            toast.success('user deleted successfully')
+        } else {
+            toast.error(data.error)
+        }
     }
 
 }))

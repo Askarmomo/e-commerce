@@ -41,28 +41,60 @@ const AccountDetailes = () => {
 
     }
 
+    // for email checking
+    function emailChecker(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email)
+    }
+    // for email checking
+    const passwordCriteria = /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
     const handleUpdateProfile = async () => {
         setLoading(true)
-
         if (update.newPassword !== update.confirmPassword) {
             toast.error("new password and confirm password not matched")
         }
+        try {
 
-        if (update.email && update.newPassword && update.username && update.newPassword) {
+            if (update.email && update.newPassword && update.username && update.newPassword) {
 
-            await updateProfile({
-                profilePic: update.profilePic,
-                username: update.username,
-                email: update.email,
-                currentPassword: update.currentPassword,
-                newPassword: update.newPassword
-            })
-        } else {
-            toast.error('Fill all the field')
+                if (update.username.length < 3) {
+                    toast.error('username must have 3 letter')
+
+                } else if (update.email.length < 6) {
+                    toast.error('email must have 6 cheracter')
+
+                } else if (!emailChecker(update.email)) {
+                    toast.error('Invalid email')
+
+                    console.log('success1');
+                } else if (update.newPassword.length < 6) {
+                    toast.error('new password must have 6 charecter')
+
+                } else if (!passwordCriteria.test(update.newPassword)) {
+                    toast.error('Invalid  new password')
+
+                } else {
+                    await updateProfile({
+                        profilePic: update.profilePic,
+                        username: update.username,
+                        email: update.email,
+                        currentPassword: update.currentPassword,
+                        newPassword: update.newPassword
+                    })
+                }
+
+            } else {
+                toast.error('Fill all the field')
+            }
+
+        } catch (error) {
+            console.log(error);
+
+        } finally {
+            setLoading(false)
         }
 
-        setLoading(false)
-        location.reload()
     }
 
     return (

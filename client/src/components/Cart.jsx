@@ -11,7 +11,7 @@ const Cart = () => {
 
 
 
-    const { cart, removeFromcart, changeCartCount,totalPrice } = useProductStore()
+    const { cart, removeFromcart, changeCartCount, totalPrice } = useProductStore()
     const { user } = useAuthStore()
     const [loading, setLoading] = useState(false)
 
