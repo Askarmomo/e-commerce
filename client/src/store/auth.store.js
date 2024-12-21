@@ -57,7 +57,7 @@ const useAuthStore = create((set) => ({
         }
     },
     logout: async () => {
-
+        set({ loading: true })
         try {
             const res = await fetch("/api/auth/logout")
             const data = await res.json()
@@ -69,13 +69,26 @@ const useAuthStore = create((set) => ({
             window.location.reload()
         } catch (error) {
             console.log(error.message);
+        } finally {
+            set({ loading: false })
+
         }
     },
     getAddress: async () => {
-        const res = await fetch('/api/auth/address')
-        const data = await res.json()
-        console.log(data);
-        set({ userAddress: data })
+        set({ loading: true })
+        try {
+            const res = await fetch('/api/auth/address')
+            const data = await res.json()
+            console.log(data);
+            set({ userAddress: data })
+
+        } catch (error) {
+            console.log(error);
+
+        } finally {
+            set({ loading: false })
+
+        }
     },
     getUser: async () => {
         set({ loading: true })
@@ -96,6 +109,7 @@ const useAuthStore = create((set) => ({
         }
     },
     refreshToken: async () => {
+        set({ loading: true })
 
         try {
             await fetch("/api/auth/refresh-token")
@@ -103,11 +117,13 @@ const useAuthStore = create((set) => ({
         } catch (error) {
             console.log(error.message);
 
+        } finally {
+            set({ loading: false })
         }
 
     },
     updateProfile: async (updateData) => {
-
+        set({ loading: true })
         try {
             const res = await fetch("/api/auth/updateprofile", {
                 method: "PUT",
@@ -127,11 +143,13 @@ const useAuthStore = create((set) => ({
         } catch (error) {
             console.log(error.message);
 
+        } finally {
+            set({ loading: true })
         }
 
     },
     updateAddress: async (updateAddressData) => {
-
+        set({ loading: true })
         try {
             const res = await fetch('/api/auth/updateaddress', {
                 method: "PUT",
@@ -145,10 +163,12 @@ const useAuthStore = create((set) => ({
         } catch (error) {
             console.log(error.message);
 
+        } finally {
+            set({ loading: false })
         }
     },
     getAllUser: async () => {
-
+        set({ loading: true })
         try {
             const res = await fetch('/api/auth/all-users')
             const data = await res.json()
@@ -157,23 +177,34 @@ const useAuthStore = create((set) => ({
         } catch (error) {
             console.log(error.message);
 
+        } finally {
+            set({ loading: false })
         }
 
     },
     deleteUser: async (user) => {
-        const res = await fetch(`/api/auth/delete-user/${user._id}`, {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' }
-        })
+        set({ loading: true })
+        try {
 
-        const data = await res.json()
+            const res = await fetch(`/api/auth/delete-user/${user._id}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' }
+            })
 
-        if (!data.error) {
+            const data = await res.json()
 
-            set({ allUsers: data })
-            toast.success('user deleted successfully')
-        } else {
-            toast.error(data.error)
+            if (!data.error) {
+
+                set({ allUsers: data })
+                toast.success('user deleted successfully')
+            } else {
+                toast.error(data.error)
+            }
+        } catch (error) {
+            console.log(error);
+
+        } finally {
+            set({ loading: true })
         }
     }
 

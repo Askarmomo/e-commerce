@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import useOrderStore from "./store/order.store"
 import { useEffect, lazy, Suspense } from "react";
+import Loading from "./components/Loading"
 // import Footer from "./components/Footer"
 
 const HomePage = lazy(() => import("./pages/HomePage"))
@@ -74,7 +75,7 @@ const App = () => {
 
       <div>
         <NavBar />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/singup" element={user ? <Navigate to={'/'} /> : <SingUpPage />} />
