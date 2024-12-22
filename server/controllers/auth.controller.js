@@ -311,7 +311,6 @@ export const getAllUsers = async (req, res) => {
 
 }
 
-
 export const getUserCount = async (req, res) => {
 
     try {
@@ -324,7 +323,6 @@ export const getUserCount = async (req, res) => {
     }
 
 }
-
 
 export const getAddress = async (req, res) => {
 
