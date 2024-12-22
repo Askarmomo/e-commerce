@@ -250,51 +250,8 @@ const AdminProducts = () => {
                                             <td className="px-6 py-4">
                                                 {0}
                                             </td>
-                                            <td className="px-6 py-4">
-
-
-                                                {
-
-                                                    < form className=" space-y-4">
-                                                        <div>
-                                                            <div className=" mb-1 font-semibold"> <label htmlFor="name">Name of the book *</label></div>
-                                                            <input value={productUpdate.name} onChange={(e) => { setProductUpdate({ ...updateProduct, name: e.target.value }) }} className=" p-2 rounded w-full outline-none bg-slate-200 placeholder:text-slate-600" id="name" type="text" placeholder="Ex: Rich dad poor dad" />
-                                                        </div>
-                                                        <div>
-                                                            <div className=" mb-1 font-semibold"> <label htmlFor="category">Category *</label></div>
-                                                            <input value={productUpdate.category} onChange={(e) => { setProductUpdate({ ...updateProduct, category: e.target.value }) }} className=" p-2 rounded w-full outline-none bg-slate-200 placeholder:text-slate-600" id="category" type="text" placeholder="Ex: Story" />
-                                                        </div>
-                                                        <div>
-                                                            <div className=" mb-1 font-semibold"> <label htmlFor="price">Stock *</label></div>
-                                                            <input value={productUpdate.stock} onChange={(e) => { setProductUpdate({ ...updateProduct, stock: e.target.value }) }} className=" p-2 rounded w-full outline-none bg-slate-200 placeholder:text-slate-800" id="price" type="number" placeholder="Ex: 124" />
-                                                        </div>
-                                                        <div>
-                                                            <div className=" mb-1 font-semibold"> <label htmlFor="discription">Description *</label></div>
-                                                            <div>
-                                                                <textarea value={productUpdate.description} onChange={(e) => { setCount(e.target.value.trim().length); setProductUpdate({ ...updateProduct, description: e.target.value }) }} maxLength={500} className=" p-2 rounded w-full outline-none bg-slate-200 placeholder:text-slate-600" id="description" type="number" placeholder="min: 500" />
-                                                                <span>{count}/500</span>
-                                                            </div>
-                                                        </div>
-                                                        <div className=" bg-slate-200 p-2 mx-auto text-center">
-                                                            {
-                                                                !productUpdate.image ?
-                                                                    <label className=" cursor-pointer " htmlFor="image">
-                                                                        <svg className=" mx-auto bg-slate-200 rounded" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 24 24"><g fill="none" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M15 8h.01M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"></path><path d="m3 16l5-5c.928-.893 2.072-.893 3 0l5 5"></path><path d="m14 14l1-1c.928-.893 2.072-.893 3 0l3 3"></path></g></svg>
-                                                                        <span className=" pt-4 text-sm"> Upload book image</span>
-                                                                    </label>
-                                                                    :
-                                                                    <img src={productUpdate.image} alt="img" />
-                                                            }
-
-                                                            <input onChange={handleIage} className=" hidden p-2 rounded w-full outline-none bg-slate-300 placeholder:text-slate-600" id="image" name="image" type="file" />
-                                                        </div>
-                                                        <div className=" pt-3"><button onClick={updatefunc} className=" p-2 rounded bg-yellow-500 hover:bg-yellow-600 uppercase w-full font-semibold">update book</button></div>
-                                                    </form>
-
-                                                }
-
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className=" stroke-rose-500 hover:stroke-red-600 cursor-pointer"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
-
+                                            <td onClick={() => setEdit(!edit)} className="px-6 py-4 text-red-600">
+                                                Edit
                                             </td>
                                         </tr>
 

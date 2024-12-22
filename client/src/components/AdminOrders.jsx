@@ -7,7 +7,6 @@ import { motion } from "framer-motion"
 const AdminOrders = () => {
 
     const { orders, getAllOrders, ordersCount } = useOrderStore()
-    console.log(ordersCount);
 
     useEffect(() => {
         getAllOrders()
@@ -23,7 +22,7 @@ const AdminOrders = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className=" w-[1020px]"
+                className=" w-[1037px]"
             >
                 {/* ["Process", "Delivered", "Shiped", "Pending" */}
                 <div className=" flex space-x-28 mt-5 items-center">

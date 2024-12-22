@@ -20,13 +20,14 @@ const NavBar = () => {
 
 
     return (
-        <div>
+        <div className=" sticky top-0 right-0 left-0 z-50 w-full">
             {
                 loading
+
                     ?
                     <Loading />
                     :
-                    < div className=" sticky top-0 right-0 left-0 z-50 w-full">
+                    < div>
                         <div className=" bg-white flex items-center sm:sticky top-0 left-0 right-0 sm:justify-center sm:space-x-14 justify-between border-b-slate-400 border-b p-4">
 
                             <button onClick={() => setOption(false)} className=" sm:hidden p-2 hover:bg-slate-200  cursor-pointer">

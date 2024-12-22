@@ -16,7 +16,7 @@ const AdminUsers = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
 
-                className="mt-10 sm:rounded-lg w-[1000px]">
+                className="mt-10 sm:rounded-lg w-[1017px]">
                 <div className=" bg-white px-5 pt-5 rounded-xl shadow-xl">
 
                     <table className="w-full text-sm">
