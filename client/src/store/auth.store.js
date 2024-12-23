@@ -156,8 +156,10 @@ const useAuthStore = create((set) => ({
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updateAddressData)
             })
+
             const data = await res.json()
-            set({ userAddress: data })
+            set({ userAddress: data.address })
+            Set(({ user: data }))
 
             toast.success('address updated successfully')
         } catch (error) {

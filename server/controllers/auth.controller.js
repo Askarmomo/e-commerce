@@ -283,7 +283,7 @@ export const updateAddress = async (req, res) => {
 
             await user.save()
 
-        res.status(200).json(user.address)
+        res.status(200).json(user)
 
     } catch (error) {
         console.log("Error in updateAddress", error.message);
