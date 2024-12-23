@@ -1,4 +1,4 @@
-import { dataFormat } from "../../client/src/middleware/dataFormaet.js";
+import { dataFormat } from "../../server/middleware/dataFormat.js";
 import Order from "../models/order.model.js";
 import User from "../models/user.model.js";
 import Stripe from "stripe"
