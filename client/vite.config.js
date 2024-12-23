@@ -8,7 +8,7 @@ export default defineConfig({
 
   server: {
     proxy: {
-      "/api": "https://e-commerce-ndnl-aftdsfhxk-askars-projects-111a8034.vercel.app/",
+      "/api": "http://localhost:3000",
     }
   },
   plugins: [
