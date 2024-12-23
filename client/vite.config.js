@@ -8,7 +8,7 @@ export default defineConfig({
 
   server: {
     proxy: {
-      "/api": "https://e-commerce-l6x2.vercel.app/",
+      "/api": "https://localhosts:3000",
     }
   },
   plugins: [
