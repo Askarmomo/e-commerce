@@ -23,7 +23,7 @@ cloudinary.config({
 
 app.use(express.json({ limit: "10MB" }))
 app.use(cookieParser())
-app.use(corse({ origin: "http://localhost:3000" }))
+app.use(corse({ origin:"https://e-commerce-1-backend-4s5l.onrender.com"}))
 
 
 app.use('/api/auth', authRoute)
