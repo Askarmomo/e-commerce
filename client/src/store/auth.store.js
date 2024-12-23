@@ -159,7 +159,7 @@ const useAuthStore = create((set) => ({
 
             const data = await res.json()
             set({ userAddress: data.address })
-            Set(({ user: data }))
+            Set({ user: data })
 
             toast.success('address updated successfully')
         } catch (error) {
