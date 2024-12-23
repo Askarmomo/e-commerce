@@ -30,6 +30,7 @@ app.use('/api/auth', authRoute)
 app.use('/api/products', productRoute)
 app.use('/api/orders', OrderRoute)
 
+
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/client/dist')))
     app.get('*', (req, res) => {
@@ -37,6 +38,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 
 }
+
 
 app.listen(PORT, () => {
     console.log("server is running http://localhost:" + PORT);
