@@ -8,7 +8,7 @@ export default defineConfig({
 
   server: {
     proxy: {
-      "/api": "https://e-commerce-1-backend-4s5l.onrender.com",
+      "/api":"https://e-commerce-1-backend-4s5l.onrender.com",
     }
   },
   plugins: [
