@@ -2,10 +2,11 @@ import PropTypes from "prop-types"
 import useAuthStore from "../store/auth.store"
 import { useState } from "react"
 import { motion } from "framer-motion"
+
+
 const Address = () => {
 
     const { updateAddress, userAddress } = useAuthStore()
-    console.log(userAddress);
 
     const [address, setAddress] = useState({
         country: "",
@@ -15,10 +16,12 @@ const Address = () => {
         landMark: ""
     })
 
+
     const handleUpdateAddress = async (e) => {
         document.getElementById('my_modal_3').classList.remove('modal-open')
         e.preventDefault
         await updateAddress(address)
+        location.reload()
     }
 
     return (
