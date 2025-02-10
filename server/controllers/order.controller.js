@@ -39,8 +39,8 @@ export const createPaymentIntent = async (req, res) => {
             payment_method_types: ["card"],
             line_items: line_items,
             mode: "payment",
-            success_url: `https://e-commerce-2gbq.onrender.com/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `https://e-commerce-2gbq.onrender.com/cancel`,
+            success_url: `https://e-commerce-31ey.onrender.com//success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `https://e-commerce-31ey.onrender.com/cancel`,
 
             metadata: {
                 userId: user._id.toString(),

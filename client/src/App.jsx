@@ -43,7 +43,6 @@ const App = () => {
       getAllCart()
       getWatchList()
       getAddress()
-
     }
     refreshToken()
   }, [getOrderByStatus, getAllCart, getWatchList, getProduct, user, refreshToken, getAddress]);
